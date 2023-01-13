@@ -9,16 +9,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Fableverse/discord-template.git"
+    "url": "git+https://github.com/Laophy/Ether-Bot.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Fableverse/discord-template/issues"
   },
+  "nodemon": "index.js",
   "homepage": "https://github.com/Fableverse/discord-template#readme",
   "dependencies": {
-    "@discordjs/rest": "^0.4.1",
+    "@discordjs/rest": "^0.4.1", 
     "cron": "^2.0.0",
     "discord-api-types": "^0.32.1",
     "discord.js": "^13.6.0",

@@ -10,6 +10,7 @@ const loadJobs = require('./scripts/loaders/loadJobs');
 // Setup env variables
 require('dotenv').config()
 
+
 // Setting up Client
 global.client = new Client({ intents: [
     "GUILDS",
