@@ -1,6 +1,6 @@
 module.exports = {
     name: 'faq',
-    description: '',
+    description: 'Frequently asked questions.',
     aliases: ['fq'],
     disabled: false,
     admin: false,
