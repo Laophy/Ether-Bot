@@ -12,8 +12,11 @@ module.exports = {
 
     let fishSize = Math.floor(Math.random() * 20) + 1;
     let fishChance = Math.floor(Math.random() * 100) + 1;
-    let img = 'https://i.imgur.com/QIUP469.png';
+    let img = 'https://i.imgur.com/1TMDuy7.gif';
     let msg = '';
+    let color = '#20ff1c';
+
+    let fish = ['https://i.imgur.com/X1sb2nH.png', 'https://i.imgur.com/dhJBYqr.png', 'https://i.imgur.com/LHg8MaE.png', 'https://i.imgur.com/YgHOflm.png', 'https://i.imgur.com/pglTSoA.png']
 
     if (fishChance <= 45) {
       if (!player.fish) {
@@ -24,7 +27,7 @@ module.exports = {
         };
       }
       msg = `${player.name} Caught a :fish:! Size ${fishSize}in!`;
-      img = 'https://i.imgur.com/3rIsdfg.png';
+      img = fish[Math.floor(Math.random() * 5)];
       if (fishSize > player.fish.biggest) {
         player.fish.biggest = fishSize;
       }
@@ -35,12 +38,13 @@ module.exports = {
         player.fish.total++;
         savePlayer(player);
     } else {
-      msg = `Missed the catch :shrimp:! Try again!`;
+      msg = `Better luck next time`;
+      color = '#ff2f1c';
     }
 
     const etherBed = {
-        color: '#20ff1c',
-        title: 'Fishin...',
+        color: color,
+        title: 'Fishing',
         url: 'https://discord.gg/etherion',
         author: {
             name: 'Ether Bot',

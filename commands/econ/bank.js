@@ -19,7 +19,7 @@ module.exports = {
             thumbnail: {
                 url: 'https://i.imgur.com/tGlc5uE.gif',
             },
-            description: `Coins: **${player.coins}\n**Ether: **${player.ether}**<:ether:974121190618722325>`,
+            description: `:coin: **${player.coins}\n**<:ether:974121190618722325> **${player.ether}**`,
             timestamp: new Date().toISOString(),
             footer: {
                 text: 'Etherion Online MMORPG',
