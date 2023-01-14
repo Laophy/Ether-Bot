@@ -12,6 +12,8 @@ module.exports = {
 
     let fishSize = Math.floor(Math.random() * 20) + 1;
     let fishChance = Math.floor(Math.random() * 100) + 1;
+    let img = 'https://i.imgur.com/QIUP469.png';
+    let msg = '';
 
     if (fishChance <= 45) {
       if (!player.fish) {
@@ -21,7 +23,8 @@ module.exports = {
           total: 0,
         };
       }
-      message.reply(`${player.name} Caught a :fish:! Size ${fishSize}in!`);
+      msg = `${player.name} Caught a :fish:! Size ${fishSize}in!`;
+      img = 'https://i.imgur.com/3rIsdfg.png';
       if (fishSize > player.fish.biggest) {
         player.fish.biggest = fishSize;
       }
@@ -32,7 +35,27 @@ module.exports = {
         player.fish.total++;
         savePlayer(player);
     } else {
-      message.reply(`Missed the catch :shrimp:! Try again!`);
+      msg = `Missed the catch :shrimp:! Try again!`;
     }
+
+    const etherBed = {
+        color: '#20ff1c',
+        title: 'Fishin...',
+        url: 'https://discord.gg/etherion',
+        author: {
+            name: 'Ether Bot',
+            icon_url: 'https://i.imgur.com/Fzuqo6H.png',
+        },
+        thumbnail: {
+            url: img,
+        },
+        description: msg,
+        timestamp: new Date().toISOString(),
+        footer: {
+            text: 'Etherion Online MMORPG',
+            icon_url: 'https://i.imgur.com/Fzuqo6H.png',
+        },
+    };
+    message.channel.send({ embeds: [etherBed] });
   },
 };

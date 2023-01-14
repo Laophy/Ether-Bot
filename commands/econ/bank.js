@@ -8,6 +8,24 @@ module.exports = {
     admin: false,
     execute: async (client, message, args) => {
         let player = await getPlayer(client, message, args);
-        message.reply(`${player.name}s total Coins: \`${player.coins}\`!\n${player.name}s total Ether: ${player.ether}<:ether:974121190618722325>!`);
+        const etherBed = {
+            color: '#20ff1c',
+            title: 'Ether Bank',
+            url: 'https://discord.gg/etherion',
+            author: {
+                name: 'Ether Bot',
+                icon_url: 'https://i.imgur.com/Fzuqo6H.png',
+            },
+            thumbnail: {
+                url: 'https://i.imgur.com/tGlc5uE.gif',
+            },
+            description: `Coins: \`${player.coins}\`!\nEther: ${player.ether}<:ether:974121190618722325>!`,
+            timestamp: new Date().toISOString(),
+            footer: {
+                text: 'Etherion Online MMORPG',
+                icon_url: 'https://i.imgur.com/Fzuqo6H.png',
+            },
+        };
+        message.channel.send({ embeds: [etherBed] });
     }
 }

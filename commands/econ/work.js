@@ -14,18 +14,21 @@ module.exports = {
         const etherBed = {
             color: '#20ff1c',
             title: 'Work',
-            url: 'https://discord.js.org',
+            url: 'https://discord.gg/etherion',
             author: {
                 name: 'Ether Bot',
                 icon_url: 'https://i.imgur.com/Fzuqo6H.png',
             },
-            description: 'Get ready to work! You will earn `450` coins in 2 hours! Check back later for more updates.',
-            image: {
-                url: 'https://i.imgur.com/Fzuqo6H.png',
+            thumbnail: {
+                url: 'https://i.imgur.com/tkJSQqK.png',
             },
+            description: 'Get ready to work! You will earn `450` coins in 2 hours! Check back later for more updates.',
+            // image: {
+            //     url: 'https://i.imgur.com/Fzuqo6H.png',
+            // },
             timestamp: new Date().toISOString(),
             footer: {
-                text: 'Etherion Online MMORPG @2023',
+                text: 'Etherion Online MMORPG',
                 icon_url: 'https://i.imgur.com/Fzuqo6H.png',
             },
         };

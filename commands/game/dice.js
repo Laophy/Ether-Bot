@@ -11,6 +11,9 @@ module.exports = {
     execute: async (client, message, args) => {
         let player = await getPlayer(client, message, args);
         let bet = isNaN(args[0]) ? (args[0] == 'all' ? player.coins : 0) : args[0];
+        let msg;
+        let roll;
+        let img = 'https://i.imgur.com/Aot26Id.png';
 
         if (player.coins < bet || player.coins === 0 || bet === 0) {
             message.reply(`Not enough coins or betting 0 nerd?!?!!`);
@@ -22,19 +25,37 @@ module.exports = {
     
             let playerTotal = playerRoll[0] + playerRoll[1];
             let botTotal = botRoll[0] + botRoll[1];
-            let msg;
             if(playerTotal > botTotal){
                 msg = `**Player Wins:** \`${bet}\`!`;
             }else if(playerTotal === botTotal){
                 msg = "TIE!";
             }else {
                 msg = "**Bot Wins!**";
+                img = 'https://i.imgur.com/ZSbC9lX.png';
             }
-    
-            message.reply(
-                `**Your Roll: \`${playerRoll[0]}\`${ether} \`${playerRoll[1]}\`${ether}**\nBot Roll: \`${botRoll[0]}\`${ether} \`${botRoll[1]}\`${ether}
-                \n${msg}`
-            );
+
+            roll = `**Your Roll: \`${playerRoll[0]}\`${ether} \`${playerRoll[1]}\`${ether}**\nBot Roll: \`${botRoll[0]}\`${ether} \`${botRoll[1]}\`${ether}\n${msg}`;
+            //message.reply(roll);
+            const etherBed = {
+                color: '#20ff1c',
+                title: 'Roll the Dice!',
+                width: 250,
+                url: 'https://discord.gg/etherion',
+                author: {
+                    name: 'Ether Bot',
+                    icon_url: 'https://i.imgur.com/Fzuqo6H.png',
+                },
+                thumbnail: {
+                    url: img,
+                },
+                description: roll,
+                timestamp: new Date().toISOString(),
+                footer: {
+                    text: 'Etherion Online MMORPG',
+                    icon_url: 'https://i.imgur.com/Fzuqo6H.png',
+                }
+            };
+            message.channel.send({ embeds: [etherBed] });
 
             if(playerTotal > botTotal){
                 player.coins += bet*2; // player wins

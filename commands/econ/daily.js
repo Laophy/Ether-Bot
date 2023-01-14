@@ -14,10 +14,13 @@ module.exports = {
         const etherBed = {
             color: '#20ff1c',
             title: 'Daily Claim',
-            url: 'https://discord.js.org',
+            url: 'https://discord.gg/etherion',
             author: {
                 name: 'Ether Bot',
                 icon_url: 'https://i.imgur.com/Fzuqo6H.png',
+            },
+            thumbnail: {
+                url: 'https://i.imgur.com/s4vaOYZ.png',
             },
             description: `You have redeemed your daily reward of \`200\` coins!`,
             timestamp: new Date().toISOString(),
