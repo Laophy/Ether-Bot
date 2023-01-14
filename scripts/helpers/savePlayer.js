@@ -13,14 +13,13 @@ const savePlayer = async (savePlayer) => {
     if (players[i].id === savePlayer.id) {
       //save the data
       players[i] = savePlayer;
-      fs.writeFileSync("./data/players.json", JSON.stringify(data), {
-        encoding: "utf8",
-        mode: 0o666,
-      });
-    }else{
-        return false
     }
   }
+
+  fs.writeFileSync("./data/players.json", JSON.stringify(data), {
+    encoding: "utf8",
+    mode: 0o666,
+  });
 };
 
 module.exports = savePlayer;

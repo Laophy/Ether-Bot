@@ -28,11 +28,12 @@ module.exports = {
       if (fishSize < player.fish.smallest) {
         player.fish.smallest = fishSize;
       }
+
+        player.fish.total++;
+        savePlayer(player);
+        console.log(player);
     } else {
       message.reply(`Miss! Try again...`);
     }
-
-    player.fish.total++;
-    savePlayer(player);
   },
 };
