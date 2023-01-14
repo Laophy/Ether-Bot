@@ -14,6 +14,7 @@ module.exports = {
         let msg;
         let roll;
         let img = 'https://i.imgur.com/Aot26Id.png';
+        let edge = '#20ff1c'
 
         if (player.coins < bet || player.coins === 0 || bet === 0) {
             message.reply(`Not enough coins or betting 0 nerd?!?!!`);
@@ -29,15 +30,17 @@ module.exports = {
                 msg = `**Player Wins:** \`${bet}\`!`;
             }else if(playerTotal === botTotal){
                 msg = "TIE!";
+                edge = '#707070';
             }else {
                 msg = "**Bot Wins!**";
                 img = 'https://i.imgur.com/ZSbC9lX.png';
+                edge = '#ff2f1c';
             }
 
             roll = `**Your Roll: \`${playerRoll[0]}\`${ether} \`${playerRoll[1]}\`${ether}**\nBot Roll: \`${botRoll[0]}\`${ether} \`${botRoll[1]}\`${ether}\n${msg}`;
             //message.reply(roll);
             const etherBed = {
-                color: '#20ff1c',
+                color: edge,
                 title: 'Roll the Dice!',
                 width: 250,
                 url: 'https://discord.gg/etherion',
