@@ -31,9 +31,8 @@ module.exports = {
 
         player.fish.total++;
         savePlayer(player);
-        console.log(player);
     } else {
-      message.reply(`Miss! Try again...`);
+      message.reply(`Missed the catch :shrimp:! Try again!`);
     }
   },
 };
