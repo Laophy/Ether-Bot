@@ -38,7 +38,6 @@ module.exports = {
             }
 
             roll = `Your Roll: **${playerRoll[0]}**${ether} **${playerRoll[1]}** ${ether}\nBot Roll: ${botRoll[0]}${ether} ${botRoll[1]}${ether}\n\n${msg}`;
-            //message.reply(roll);
             const etherBed = {
                 color: edge,
                 title: 'Roll the Dice!',

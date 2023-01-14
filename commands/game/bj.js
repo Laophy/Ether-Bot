@@ -50,7 +50,20 @@ module.exports = {
                 .setLabel('DOUBLE')
                 .setStyle('DANGER'),
         );
-        //message.channel.send({ embeds: [etherBed], components: [row] });
-        await message.reply({ embeds: [etherBed], components: [row], content: "A button was pressed..."});
+        message.channel.send({ embeds: [etherBed], components: [row] });
+        //await message.reply({ components: [row]});
+        client.on("interactionCreate", async interaction => {
+            if (interaction.isButton()) {
+                const buttonID = interaction.customId
+                if (buttonID === 'hit') {
+                    interaction.message.edit("Hit!");
+                }else if (buttonID === 'stand'){
+                    interaction.message.edit("Stand!");
+                }else {
+                    interaction.message.edit("Double!");
+                }
+            }
+        })
+        
     }
 }

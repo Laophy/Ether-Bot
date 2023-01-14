@@ -28,20 +28,22 @@ module.exports = {
             msg = `You have redeemed your daily reward of \`200\` coins!`;
             player.coins += dailyReward;
             color = '#20ff1c';
-        }
-        let hours = Math.abs(new Date(player.daily.lastClaimed) - today) / 36e5;
-
-        if(hours >= 24){
-            msg = `You have redeemed your daily reward of \`200\` coins!`;
-            player.coins += dailyReward;
-            // Change claim date to today
-            player.daily = {
-                lastClaimed: today
-            }
-            color = '#20ff1c';
         }else{
-            msg = `You already claimed your reward ` + timeAgo.format(new Date(player.daily.lastClaimed), "round",) + `, check back in \`${(24-hours).toFixed(2)}\` hours.`;
+            let hours = Math.abs(new Date(player.daily.lastClaimed) - today) / 36e5;
+
+            if(hours >= 24){
+                msg = `You have redeemed your daily reward of \`200\` coins!`;
+                player.coins += dailyReward;
+                // Change claim date to today
+                player.daily = {
+                    lastClaimed: today
+                }
+                color = '#20ff1c';
+            }else{
+                msg = `You already claimed your reward **` + timeAgo.format(new Date(player.daily.lastClaimed), "round",) + `**, check back in **${(24-hours).toFixed(0)}** hours.`;
+            }
         }
+        // Save data
         savePlayer(player);
         
         const etherBed = {

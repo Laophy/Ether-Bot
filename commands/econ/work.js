@@ -25,7 +25,7 @@ module.exports = {
 
         let hours = Math.abs(new Date(player.work.lastClaimed) - today) / 36e5;
         if(hours >= 2){
-            msg = `You have earned ${workReward}`;
+            msg = `You have earned :coin:${workReward}`;
             player.coins += workReward;
             // Change claim date to today
             player.work = {
@@ -33,7 +33,7 @@ module.exports = {
             }
             color = '#20ff1c';
         }else{
-            msg = `Get ready to work! You will earn :coin:\`${workReward}\` every 2 hours! Come back in ${(2-hours).toFixed(1)} hours to claim your paycheck!`
+            msg = `Get ready to work! You will earn :coin:**${workReward}** every 2 hours! Come back in **${(2-hours).toFixed(0)}** hours to claim your paycheck!`
             //msg = `You already claimed your reward ` + timeAgo.format(new Date(player.daily.lastClaimed), "round",) + `, check back in \`${(24-hours).toFixed(2)}\` hours.`;
         }
         savePlayer(player);
