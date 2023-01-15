@@ -10,6 +10,17 @@ const loadJobs = require('./scripts/loaders/loadJobs');
 // Setup env variables
 require('dotenv').config()
 
+const express = require('express')
+const app = express()
+const port = 8080
+
+app.get('/', (req, res) => {
+  res.status(200).send('Healthy code!')
+})
+
+app.listen(port, () => {
+  console.log('Health check server is now up on port: ' + port)
+})
 
 // Setting up Client
 global.client = new Client({ intents: [
