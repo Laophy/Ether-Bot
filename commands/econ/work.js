@@ -21,21 +21,22 @@ module.exports = {
             msg = `Get ready to work! You will earn ${workReward} coins in 2 hours! Check back later for more updates.`;
             player.coins += workReward;
             color = '#20ff1c';
-        }
-
-        let hours = Math.abs(new Date(player.work.lastClaimed) - today) / 36e5;
-        if(hours >= 2){
-            msg = `You have earned :coin:${workReward}`;
-            player.coins += workReward;
-            // Change claim date to today
-            player.work = {
-                lastClaimed: today
+        }else {
+            let hours = Math.abs(new Date(player.work.lastClaimed) - today) / 36e5;
+            if(hours >= 2){
+                msg = `You have earned :coin:${workReward}`;
+                player.coins += workReward;
+                // Change claim date to today
+                player.work = {
+                    lastClaimed: today
+                }
+                color = '#20ff1c';
+            }else{
+                msg = `Get ready to work! You will earn :coin:**${workReward}** every 2 hours! Come back in **${(2-hours).toFixed(0)}** hours to claim your paycheck!`
+                //msg = `You already claimed your reward ` + timeAgo.format(new Date(player.daily.lastClaimed), "round",) + `, check back in \`${(24-hours).toFixed(2)}\` hours.`;
             }
-            color = '#20ff1c';
-        }else{
-            msg = `Get ready to work! You will earn :coin:**${workReward}** every 2 hours! Come back in **${(2-hours).toFixed(0)}** hours to claim your paycheck!`
-            //msg = `You already claimed your reward ` + timeAgo.format(new Date(player.daily.lastClaimed), "round",) + `, check back in \`${(24-hours).toFixed(2)}\` hours.`;
         }
+        // Save player data
         savePlayer(player);
         
         const etherBed = {
