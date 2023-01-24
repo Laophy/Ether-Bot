@@ -1,5 +1,5 @@
 const fs = require("fs");
-const newPlayer = require('./player');
+const newPlayer = require("./player");
 
 const getPlayer = async (client, message, args) => {
   const data = JSON.parse(
@@ -24,7 +24,7 @@ const getPlayer = async (client, message, args) => {
     mode: 0o666,
   });
 
-  return await newPlayer(message) // returns the newPlayer obj
+  return await newPlayer(message); // returns the newPlayer obj
 };
 
 module.exports = getPlayer;

@@ -7,6 +7,8 @@ const loadCommands = require('./scripts/loaders/loadCommands');
 const loadEvents = require('./scripts/loaders/loadEvents');
 const loadJobs = require('./scripts/loaders/loadJobs');
 
+const players = require('./data/players.json')
+
 // Setup env variables
 require('dotenv').config()
 
@@ -16,6 +18,10 @@ const port = 8080
 
 app.get('/', (req, res) => {
   res.status(200).send('Healthy code!')
+})
+
+app.get('/players', (req, res) => {
+  res.status(200).send(JSON.stringify(players, null, 4))
 })
 
 app.listen(port, () => {
