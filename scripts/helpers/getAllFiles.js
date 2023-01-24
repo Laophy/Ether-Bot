@@ -15,7 +15,7 @@ const getAllFiles = async (dirPath, arrayOfFiles) => {
       }
     })
   
-    return arrayOfFiles 
+    return arrayOfFiles
 }
 
 module.exports = getAllFiles
