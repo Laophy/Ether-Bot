@@ -12,6 +12,7 @@ const savePlayer = async (savePlayer) => {
   for (let i = 0; i < players.length; i++) {
     if (players[i].id === savePlayer.id) {
       //save the data
+      savePlayer.lastCheck = new Date();
       players[i] = savePlayer;
     }
   }
